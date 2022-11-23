@@ -1,0 +1,10 @@
+<h1>Lr9#input</h1>
+<p>Введите массив</p>
+
+<%= form_tag("/calc/view", :method => "get") do %>
+    <%= label_tag("Размер массива:") %>
+    <%= text_field_tag(:amount) %> <br/>
+    <%= label_tag("Массив:") %>
+    <%= text_field_tag(:array) %> <br/>
+    <%= submit_tag("Отправить") %>
+    <% end %>
