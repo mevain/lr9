@@ -1,0 +1,30 @@
+
+<h1>Ответ:</h1>
+<div> 
+    <p> Введенный массив: <%= @array %> </p>
+    <p> Количество отрезков: <%= @cuts.size %> </p>
+    <table id = "result" border = 1>
+        <tr>
+            <th width = 100> Длина </th>
+            <th width = 300> Отрезок </th>
+        </tr>
+        <% if @result.size == 0 then %> <tr> <td colspan="2"> Нет отрезков </td> </tr> 
+        <% else %>
+        <%  @cuts.each do |i| %>
+            <tr>
+                <td> <%= i.size %> </td>
+                <td> <%= i %> </td>
+            </tr>
+        <% end %>
+        <tr> <th colspan="2"> Самый длинный отрезок </th> </tr>
+        <tr>
+            <td> <%= @cuts.max.size %> </td>
+            <td> <%= @cuts.max %> </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+
+
+<%= link_to "Ввести массив", :lr9_input %>

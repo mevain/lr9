@@ -1,10 +1,7 @@
 <h1>Lr9#input</h1>
 <p>Введите массив</p>
 
-<%= form_tag("/lr9/input.json", :method => "get",
-remote: true, id: 'input_form') do %>
-    <%= label_tag("Размер массива:") %>
-    <%= text_field_tag(:amount) %> <br/>
+<%= form_tag('/lr9/output.json', :method => 'get', remote: true, id: 'input_form') do %>
     <%= label_tag("Массив:") %>
     <%= text_field_tag(:array) %> <br/>
     <%= submit_tag("Отправить") %>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;
+charset=utf-8" />
+<title>AJAX lr9c test</title>
+<script>
+lr9_url= location.protocol + "//" + location.host +
+"/lr9/output.json"
+function send_query(){
+var frm = document.forms.input_form;
+var param_str = "";
+param_str = "?" + "&array=" + frm.array.value
+if (param_str == "") return false;
+var my_JSON_object = {};
+var http_request = new XMLHttpRequest();
+http_request.open("GET", lr9_url+param_str, true);
+http_request.onreadystatechange = function () {
+var done = 4, ok = 200;
+if (http_request.readyState == done &&
+http_request.status == ok) {
+my_JSON_object =
+JSON.parse(http_request.responseText);
+show_result(my_JSON_object);
+}
+};
+http_request.send(null);
+return false;
+}
+function show_result(data){
+var result = document.getElementById("result");
+result.innerHTML = "<hr/>Result is: " + data.value +
+"<hr/><p>"+"</p>";
+}
+</script>
+</head>
+<body>
+<form name="input_form" method="get">
+<label for="Массив:">Массив:</label>
+<input id="array" name="array" type="text" /> <br/>
+<input name="commit" type="submit"
+value="lr9 result" onclick="return send_query();" />
+</form>
+<div id="result"></div>
+</body>
+</html>
