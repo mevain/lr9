@@ -22,7 +22,7 @@ class Lr9Controller < ApplicationController
       format.html
       format.json do
       render json:
-      {type: @result.class.to_s, value: @result}
+      {length: @cuts.length, value: @cuts}
       end
       end
   end
